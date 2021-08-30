@@ -10915,17 +10915,16 @@ buildDOM: function(result) {
     document.getElementById("apodImage").style.visibility="hidden";
   
    $("#apodVideo > iframe").attr("src", result.url).show();
-//NOT LOADING URL
-  /* var vidFrame = document.getElementById("apodVideo");
-   vidFrame.setAttribute('src', result.url).style.visibility="visible";*/
+   
+   document.getElementById("apodVideo").src = result.url;
+
   }else{
   //$("#apodVideo").hide();
  document.getElementById("apodVideo").style.visibility="hidden";
   
     //$("#apodImg").attr("src", result.url).attr('alt', result.title).show();
+document.getElementById("apodImg").src = result.url;
 
-    var picFrame = document.getElementById("apodVideo");
-   picFrame.setAttribute('src', result.url).style.visibility="visible";
   }
 
   $("#apodCopyright").text("Copyright: " + result.copyright);
