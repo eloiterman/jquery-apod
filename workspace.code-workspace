@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../draw"
+		},
+		{
+			"path": "../game"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
