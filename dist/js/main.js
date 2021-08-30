@@ -10911,14 +10911,21 @@ buildDOM: function(result) {
 
 
   if(result.media_type === 'video') {
-    $("#apodImage").hide();
-  /// document.getElementById("apodImage").style.visibility="hidden";
- 
-    $("#apodVideo > iframe").attr("src", result.url).show();
+   // $("#apodImage").hide();
+    document.getElementById("apodImage").style.visibility="hidden";
+  
+   $("#apodVideo > iframe").attr("src", result.url).show();
+//NOT LOADING URL
+  /* var vidFrame = document.getElementById("apodVideo");
+   vidFrame.setAttribute('src', result.url).style.visibility="visible";*/
   }else{
-    $("#apodVideo").hide();
-   //document.getElementById("apodVideo").style.visibility="hidden";
-    $("#apodImg").attr("src", result.url).attr('alt', result.title).show();
+  //$("#apodVideo").hide();
+ document.getElementById("apodVideo").style.visibility="hidden";
+  
+    //$("#apodImg").attr("src", result.url).attr('alt', result.title).show();
+
+    var picFrame = document.getElementById("apodVideo");
+   picFrame.setAttribute('src', result.url).style.visibility="visible";
   }
 
   $("#apodCopyright").text("Copyright: " + result.copyright);
