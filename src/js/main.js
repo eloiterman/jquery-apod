@@ -34,7 +34,7 @@ buildDOM: function(result) {
   
    $("#apodVideo > iframe").attr("src", result.url).show();
    
-   document.getElementById("apodVideo").src = result.url;
+   document.getElementById("apodVideo-frame").src = result.url;
 
   }else{
   //$("#apodVideo").hide();
