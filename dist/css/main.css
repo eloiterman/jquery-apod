@@ -6,6 +6,9 @@ main {
   width: 720px;
   margin: 0 auto; }
 
+h1 {
+  color: green; }
+
 #apodImg {
   max-width: 100%; }
 
