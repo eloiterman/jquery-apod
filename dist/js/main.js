@@ -10906,19 +10906,26 @@ randomDate: function(start, end) {
 
 //Injects the results of the API call into the DOM
 buildDOM: function(result) {
-  $("#apodTitle").text(result.title);
+ // $("#apodTitle").text(result.title);
+ document.getElementsByTagName("h1")[0].innerHTML = (result.title);
+
 
   if(result.media_type === 'video') {
     $("#apodImage").hide();
+  /// document.getElementById("apodImage").style.visibility="hidden";
+ 
     $("#apodVideo > iframe").attr("src", result.url).show();
   }else{
     $("#apodVideo").hide();
+   //document.getElementById("apodVideo").style.visibility="hidden";
     $("#apodImg").attr("src", result.url).attr('alt', result.title).show();
   }
 
   $("#apodCopyright").text("Copyright: " + result.copyright);
-  $("#apodDate").text("Date: " + result.date);
-  $("#apodDesc").text(result.explanation);
+  //$("#apodDate").text("Date: " + result.date);
+ // $("#apodDesc").text(result.explanation);
+ document.getElementById("apodDate").innerHTML = ("Date: " + result.date);
+ document.getElementById("apodDesc").innerHTML = (result.explanation);
 },
 
 //Executes an AJAX call to an API.
@@ -10934,8 +10941,12 @@ getRequest: function() {
     console.log(result);
   });
 },
-
-
+//how do I inject this into result? i.e. _this.buildDOM(result)
+  /*var httpRequest = new XMLHttpRequest();
+  httpRequest.open('GET', "https://api.nasa.gov/planetary/apod?api_key=VJKfcUQwcfwF8elXqUFg81h4k7G7ibzaihODcWoS&date=");
+  httpRequest.send();
+  return httpRequest.responseText;
+*/
 // Initialization method.
 init: function() {
   this.getRequest();
@@ -10945,12 +10956,19 @@ init: function() {
 
 apod.init();
 
-/* https://learn.jquery.com/using-jquery-core/document-ready/ */
-$(function() {
+
+/*$(function() {
     $('#btnRandApod').on('click',function(){
       apod.getRequest();
     });
+});*/
+
+document.getElementById("btnRandApod").addEventListener("click", function() {
+  apod.getRequest();
 });
+
+
+
 
 
 //      var url = "https://api.nasa.gov/planetary/apod?api_key=VJKfcUQwcfwF8elXqUFg81h4k7G7ibzaihODcWoS&date=" + date;
